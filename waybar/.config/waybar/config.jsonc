@@ -1,0 +1,30 @@
+{
+    "position": "top",
+    "margin-top": "15",
+
+    "include": [
+        "~/.config/waybar/configs/modules.jsonc"
+    ],
+
+    "modules-left": [
+        "custom/powermenu",
+        "clock",
+        "hyprland/workspaces",
+        "hyprland/window",
+        "custom/wallpaper"
+    ],
+    "modules-center": [
+        "mpris"
+    ],
+    "modules-right": [
+        "cpu",
+        "temperature",
+        "memory",
+        "backlight",
+        "pulseaudio",
+        "network",
+        "battery",
+        "custom/asus_fan",
+        "custom/notification"
+    ]
+}

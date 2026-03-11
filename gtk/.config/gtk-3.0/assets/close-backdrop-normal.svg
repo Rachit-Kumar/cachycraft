@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 50 50"
+ xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.2" baseProfile="tiny">
+<title>Qt SVG Document</title>
+<desc>Generated with Qt</desc>
+<defs>
+</defs>
+<g fill="none" stroke="black" stroke-width="1" fill-rule="evenodd" stroke-linecap="square" stroke-linejoin="bevel" >
+
+<g fill="#000000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" transform="matrix(1,0,0,1,0,0)"
+font-family="CaskaydiaCove Nerd Font Mono" font-size="10" font-weight="400" font-style="normal" 
+opacity="0.5" >
+<image x="-4" y="-6" width="58" height="61" preserveAspectRatio="none" image-rendering="optimizeQuality" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAA9CAYAAAD8vnqQAAAACW9GRnP////8////+gAB4tOWAAAACXBIWXMAAA7EAAAOxAGVKw4bAAADvUlEQVRoge2aTWhcVRTH//8beZORxGaKu2pU0CqCYBU3Im6S7ETFTZu10hGzytjM+5hsnTcDyQOrqLT4gYhtFhUEd5nowqYLBRXdqChosYLFagpieS8z78jFWYWXzJuPTN7V+S3fnHvn/e8573I45wAjRowYMWJ4cD82FRH6vn8PyUcBHCN5H4BpAIcB5Ns2fwO4RvJnAN8C+EJELrqu+1Pmhfq+fyeAeQAnSN7V4zZa9Plms7m2vLx8JVNCV1dXb4+iaLktcFCH1wTwTqvVqlcqld/63Yz9LA6C4HAYhqdIngRgYR/QIU7y9OTk5OmFhYW/hi60Wq0+TfJVkrdgOPwuIs+5rvtxL4tVLxdNrVZzlFLvDlGk5laSF2q1WlG/Q7eL2Y1xEAT5MAxfJ/kMDpa3CoXCUrFY3B640CAI8lEUfQTgEWSDRqFQOJ5WrEpjpEMliqLXMiRSM7u1teWnNR5LY5TP58sAnkf2eHhubu5qo9H4su/QrVarTyql3kN2acZx/JTneZ/2LNT3/QLJrwEcQra5YlnWQ6VS6UZP3yjJkgEiNUeiKNJJS/cerdfrt4mIjv0czOB6Lpd7YHFxcasrj8ZxXDFIpOZQGIYvduXRWq02LSLfDDBBHxahiBx1XffPVB4VkXkDRWpySqnErE0lJQckj8NQROREqoRhfHz8bpIuDEVEjszMzJzd2Ni40Sl0H4PBkKRSSpdw0EnoMRgOyQc7CiV5LwxHRHQxrqNHdbXOdKbT3Lq6JGk0kqAhKXRvhuEwQUPXNSNTUTsftCvoRiMJGpJC9w8YDhM0JIXuZZjP5TSh+x0Mh6Tu33T0aMdCU9YRka92Prspwe4iDEb+5VJHjzqO8yOAH2AoJD/zPO9amltXn8gaDIXk+aTniQkDyXNaLcwjjOP4g9RCHcfR1/P7MI83kupFe6aASqmX9AnBHHS5c3W3H3cVatv2L/qEYA4ru9V0Oyb17RO6juyjWxJn9jLYU2j7hF5AttFNppN79V1StQ0bjcb3s7OzLQCPI4OISMnzvA8H0h9dX1+/tLm5eRTA/cgQJM84jlNPY6tSbiiWZekQ/hzZoTE1NZW6/qzSGupvwLKsJwBcwMHzZjfzCxr2OH5TJqm7bcOmRdIul8tndZT9ZweqSD5r2/YnvSxmP//cbv2fAlDczxE5pdTLExMTrxzIiNzOocft7e3KgNuNeujx7bGxsfrS0tLVfjcjBsjKysodzWZzvi245zFWETmnlFqzbfvXQb0b8T8ZTB4xYsQIZIF/AAA/bvxUeyGYAAAAAElFTkSuQmCC" />
+</g>
+
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="CaskaydiaCove Nerd Font Mono" font-size="10" font-weight="400" font-style="normal" 
+>
+</g>
+</g>
+</svg>

@@ -1,0 +1,124 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "right",
+  "positionY": "top",
+  "cssPriority": "user",
+
+  "control-center-width": 440,
+  "control-center-height": 1080,
+  "control-center-margin-top": 2,
+  "control-center-margin-bottom": 2,
+  "control-center-margin-right": 1,
+  "control-center-margin-left": 0,
+
+  "notification-window-width": 420,
+  "notification-icon-size": 48,
+  "notification-body-image-height": 160,
+  "notification-body-image-width": 200,
+
+  "timeout": 5,
+  "timeout-low": 3,
+  "timeout-critical": 8,
+
+  "fit-to-screen": false,
+  "keyboard-shortcuts": true,
+  "image-visibility": "when-available",
+  "transition-time": 200,
+  "hide-on-clear": false,
+  "hide-on-action": false,
+  "script-fail-notify": true,
+
+  "scripts": {
+    "example-script": {
+      "exec": "echo 'Do something...'",
+      "urgency": "Normal"
+    }
+  },
+
+  "notification-visibility": {
+    "spotify-muted": {
+      "state": "muted",
+      "urgency": "Low",
+      "app-name": "Spotify"
+    }
+  },
+
+  "widgets": [
+    "label",
+    "buttons-grid",
+    "volume",
+    "mpris",
+    "title",
+    "dnd",
+    "notifications"
+  ],
+
+  "widget-config": {
+    "title": {
+      "text": "Notifications",
+      "clear-all-button": true,
+      "button-text": " 󰎟 Clear All"
+    },
+    "dnd": {
+      "text": " Do Not Disturb"
+    },
+    "label": {
+      "max-lines": 1,
+      "text": "  Control Center"
+    },
+    "mpris": {
+      "image-size": 72
+    },
+    "backlight": {
+      "label": "󰃠"
+    },
+    "volume": {
+      "label": "󰕾",
+      "show-per-app": true
+    },
+    "buttons-grid": {
+      "actions": [
+        {
+          "label": "󰝟",
+          "command": "amixer set Master toggle"
+        },
+        {
+          "label": "󰍭",
+          "command": "amixer set Capture toggle"
+        },
+        {
+          "label": "󰤨",
+          "command": "nm-connection-editor"
+        },
+        {
+          "label": "󰂯",
+          "command": "blueman-manager"
+        },
+        {
+          "label": "󰏘",
+          "command": "nwg-look"
+        },
+        {
+          "label": "󰸉",
+          "command": "~/.config/waybar/scripts/wallpaper-selector.sh"
+        },
+        {
+          "label": "󰆍",
+          "command": "kitty"
+        },
+        {
+          "label": "󰉋",
+          "command": "dolphin"
+        },
+        {
+          "label": "⏻",
+          "command": "~/.config/rofi/scripts/powermenu_t2"
+        },
+        {
+          "label": "󰹑",
+          "command": "hyprshot -m region -o ~/Pictures/Screenshots --clipboard"
+        }
+      ]
+    }
+  }
+}

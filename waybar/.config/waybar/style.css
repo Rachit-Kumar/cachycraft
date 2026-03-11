@@ -1,0 +1,311 @@
+@import 'colors/one-dark.css';
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "CaskaydiaCove Nerd Font", "JetBrainsMono Nerd Font Propo", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+tooltip {
+    background: rgba(33, 37, 43, 0.9);
+    border: 1px solid rgba(171, 178, 191, 0.2);
+    border-radius: 12px;
+}
+
+tooltip label {
+    color: @fg;
+    padding: 10px;
+}
+
+#workspaces {
+    background-color: rgba(33, 37, 43, 0.8);
+    padding: 2px 4px;
+    margin: 4px 0 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(171, 178, 191, 0.1);
+}
+
+#workspaces button {
+    padding: 0 4px;
+    margin: 0 2px;
+    border-radius: 20px;
+    color: @grey0;
+    transition: all 0.3s cubic-bezier(.55, 0, .1, 1);
+}
+
+#workspaces button.active {
+    color: @blue;
+    min-width: 24px;
+    transition: all 0.3s cubic-bezier(.55, 0, .1, 1);
+}
+
+#workspaces button.hover {
+    color: @purple;
+    background: transparent;
+}
+
+#workspaces button.urgent {
+    color: @red;
+}
+
+/* ============================================================
+   PREMIUM REDESIGN (Glassmorphism + Gradients)
+   ============================================================ */
+
+/* Base Glassmorphism Module Template */
+#mpris,
+#cpu,
+#temperature,
+#memory,
+#backlight,
+#battery,
+#pulseaudio,
+#network,
+#clock,
+#custom-notification,
+#custom-wallpaper,
+#custom-powermenu {
+    background: rgba(33, 37, 43, 0.8);
+    padding: 0 16px;
+    margin: 4px 6px;
+    border-radius: 24px;
+    border: 1px solid rgba(171, 178, 191, 0.1);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+    transition: all 0.3s cubic-bezier(.55, 0, .1, 1);
+}
+
+/* Hover Effects (Glow + Scale) */
+#mpris:hover,
+#cpu:hover,
+#temperature:hover,
+#memory:hover,
+#backlight:hover,
+#battery:hover,
+#pulseaudio:hover,
+#network:hover,
+#clock:hover,
+#custom-notification:hover,
+#custom-wallpaper:hover,
+#custom-powermenu:hover {
+    background: rgba(44, 49, 58, 0.9);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    padding: 0 20px;
+}
+
+#window,
+#mpris,
+#temperature,
+#backlight,
+#pulseaudio,
+#network,
+#battery,
+#custom-asus_fan {
+    background: rgba(30, 34, 42, 0.4);
+    border: 1px solid rgba(171, 178, 191, 0.1);
+    color: @fg;
+    padding: 2px 12px;
+    margin: 4px 6px;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(.55, 0, .1, 1);
+    font-weight: 500;
+}
+
+#window:hover,
+#mpris:hover,
+#temperature:hover,
+#backlight:hover,
+#pulseaudio:hover,
+#network:hover,
+#battery:hover,
+#custom-asus_fan:hover {
+    background: rgba(40, 44, 52, 0.6);
+    border-color: rgba(171, 178, 191, 0.3);
+    padding: 2px 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Individual Module Accents */
+#clock {
+    color: @blue;
+}
+
+#cpu {
+    color: @red;
+}
+
+#temperature {
+    color: @orange;
+}
+
+#memory {
+    color: @aqua;
+}
+
+#backlight {
+    color: @yellow;
+}
+
+#mpris {
+    color: @purple;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 2px 25px;
+    margin: 4px 0;
+    /* Note: Use max-length in modules.jsonc to control total width */
+    min-width: 230px;
+}
+
+#battery {
+    color: @green;
+}
+
+#battery.warning {
+    color: @yellow;
+}
+
+#battery.critical {
+    color: @red;
+}
+
+#pulseaudio {
+    color: @yellow;
+}
+
+#pulseaudio.muted {
+    color: @grey0;
+}
+
+#network {
+    color: @purple;
+}
+
+#network.disconnected {
+    color: @grey0;
+}
+
+#custom-notification {
+    color: @fg;
+    margin: 4px 0 4px 12px;
+}
+
+#custom-wallpaper {
+    color: @orange;
+}
+
+#custom-wallpaper:hover {
+    color: @yellow;
+}
+
+#custom-powermenu {
+    color: @red;
+    margin-right: 12px;
+}
+
+#custom-powermenu:hover {
+    background: rgba(224, 108, 117, 0.2);
+    color: @red;
+}
+
+#custom-asus_fan {
+    background: rgba(33, 37, 43, 0.8);
+    padding: 0 12px;
+    margin: 4px 0 4px 12px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(171, 178, 191, 0.1);
+}
+
+#custom-asus_fan.quiet {
+    color: @green;
+}
+
+#custom-asus_fan.balanced {
+    color: @blue;
+}
+
+#custom-asus_fan.performance {
+    color: @red;
+}
+
+/* ============================================================
+   OLD STYLES (Commented out for easy reversion)
+   ============================================================ */
+/*
+#cpu,
+#memory,
+#battery,
+#pulseaudio,
+#network,
+#clock,
+#custom-notification,
+#custom-wallpaper,
+#custom-powermenu {
+    background-color: @bg0;
+    padding: 0 15px;
+    margin: 0 0 0 12px;
+    border-radius: 50px;
+    border: 1px solid @bg1;
+    transition: all 0.3s ease;
+}
+
+#clock { color: @blue; }
+#battery { color: @green; }
+#battery.warning { color: @yellow; }
+#battery.critical { color: @red; }
+#pulseaudio { color: @yellow; }
+#pulseaudio.muted { color: @grey0; }
+#network { color: @purple; }
+#network.disconnected { color: @grey0; }
+
+#custom-wallpaper {
+    color: @orange;
+    border: 1px solid alpha(@orange, 0.3);
+}
+#custom-wallpaper:hover {
+    border-color: @orange;
+    color: @yellow;
+}
+
+#custom-notification {
+    color: @fg;
+    margin: 0 0 0 12px;
+}
+*/
+
+/* powermenu removed from old styles to prevent conflicts */
+
+#custom-notification {
+    color: @fg;
+    margin: 0 0 0 12px;
+}
+
+#custom-asus_fan {
+    padding: 0 10px;
+    margin: 4px;
+    border-radius: 10px;
+    background-color: #313244;
+    color: #cdd6f4;
+    transition: all 0.3s ease;
+}
+
+#custom-asus_fan.quiet {
+    color: #a6e3a1;
+}
+
+#custom-asus_fan.balanced {
+    color: #89b4fa;
+}
+
+#custom-asus_fan.performance {
+    color: #f38ba8;
+}

@@ -1,0 +1,54 @@
+[terminal.shell]
+program = "fish"
+
+[window]
+padding = { x = 20, y = 15 }
+opacity = 0.6
+blur = true
+
+[font]
+size = 13.0
+
+[font.normal]
+family = "JetBrainsMono"
+
+[font.bold]
+family = "JetBrainsMono"
+
+[font.italic]
+family = "JetBrainsMono"
+
+[font.bold_italic]
+family = "JetBrainsMono"
+
+[colors.primary]
+background = "#111318"
+foreground = "#e2e2e9"
+
+[colors.cursor]
+cursor = "#aac7ff"
+text = "#111318"
+
+[colors.selection]
+text = "#aac7ff"
+background = "#0a305f"
+
+[colors.normal]
+black   = "#111318"
+red     = "#ffb4ab"
+green   = "#aac7ff"
+yellow  = "#dcbce0"
+blue    = "#d6e3ff"
+magenta = "#dae2f9"
+cyan    = "#bec6dc"
+white   = "#e2e2e9"
+
+[colors.bright]
+black   = "#37393e"
+red     = "#ffb4ab"
+green   = "#aac7ff"
+yellow  = "#dcbce0"
+blue    = "#d6e3ff"
+magenta = "#dae2f9"
+cyan    = "#bec6dc"
+white   = "#e2e2e9"

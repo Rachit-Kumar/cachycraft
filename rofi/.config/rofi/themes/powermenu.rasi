@@ -1,0 +1,112 @@
+@import "../colors.rasi"
+
+configuration {
+    show-icons: false;
+    font: "JetBrainsMono Nerd Font 12";
+}
+
+* {
+    background-color: transparent;
+    text-color: @on-surface;
+}
+
+window {
+    background-color: @surface-container;
+    transparency: "real";
+    border: 2px solid;
+    border-color: @primary;
+    border-radius: 20px;
+    padding: 20px;
+    width: 600px;
+    location: center;
+    anchor: center;
+}
+
+mainbox {
+    background-color: transparent;
+    children: [ inputbar, message, listview ];
+    spacing: 16px;
+}
+
+inputbar {
+    background-color: @surface-container-high;
+    border-radius: 14px;
+    padding: 14px 18px;
+    children: [ textbox-prompt-colon, prompt ];
+    spacing: 12px;
+    border: 1px solid;
+    border-color: @outline;
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: "⏻";
+    text-color: @primary;
+    font: "JetBrainsMono Nerd Font Bold 16";
+    padding: 0 8px 0 0;
+}
+
+prompt {
+    text-color: @on-surface;
+    font: "JetBrainsMono Nerd Font 12";
+}
+
+message {
+    background-color: @surface-container-high;
+    border-radius: 12px;
+    padding: 10px 16px;
+    border: 1px solid;
+    border-color: @outline;
+}
+
+textbox {
+    text-color: @outline;
+    font: "JetBrainsMono Nerd Font 10";
+    horizontal-align: 0.5;
+}
+
+listview {
+    background-color: transparent;
+    columns: 5;
+    lines: 1;
+    spacing: 10px;
+    scrollbar: false;
+    fixed-columns: true;
+    fixed-height: true;
+    border: 0;
+    cycle: true;
+}
+
+element {
+    background-color: @surface-container-high;
+    text-color: @on-surface;
+    border-radius: 14px;
+    padding: 24px 8px;
+    spacing: 0;
+    orientation: vertical;
+    border: 1px solid;
+    border-color: transparent;
+    cursor: pointer;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    text-color: inherit;
+    font: "JetBrainsMono Nerd Font 11";
+    cursor: inherit;
+}
+
+element selected.normal {
+    background-color: @primary;
+    text-color: @on-primary;
+    border-color: @secondary;
+    border: 2px solid;
+}
+
+error-message {
+    padding: 12px;
+    border-radius: 14px;
+    background-color: @surface-container;
+    text-color: @on-surface;
+}

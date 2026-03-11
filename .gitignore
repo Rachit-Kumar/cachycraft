@@ -1,0 +1,11 @@
+# OS
+.DS_Store
+*.swp
+*~
+
+# Caches
+*.pyc
+__pycache__/
+
+# Kitty large config (optional — remove this line if you want to track it)
+# kitty/.config/kitty/kitty.conf

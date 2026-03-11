@@ -1,0 +1,54 @@
+/* Global colors */
+@import url('colors.css');
+
+window#osd {
+    background: rgba(55, 51, 58, 0.7); /* Hardcoded surface_container_highest approx */
+    border-radius: 20px;
+    border: 1px solid rgba(214, 187, 251, 0.5); /* Hardcoded primary approx */
+    padding: 25px;
+    margin: 50px;
+}
+
+#container {
+    margin: 0px;
+}
+
+progressbar,
+trough {
+    min-height: 10px;
+    min-width: 250px;
+    border-radius: 5px;
+    background: alpha(@surface_container, 0.5);
+}
+
+progress {
+    min-height: 10px;
+    border-radius: 5px;
+    background: @primary;
+}
+
+image {
+    margin-right: 15px;
+    color: @on_surface;
+    min-width: 32px;
+    min-height: 32px;
+}
+
+label {
+    font-size: 24px;
+    font-weight: bold;
+    color: @on_surface;
+}
+
+/* Specific modes */
+window#osd.muted progress {
+    background: @error;
+}
+
+window#osd.caps-lock progress {
+    background: @secondary;
+}
+
+window#osd.brightness progress {
+    background: @tertiary;
+}
