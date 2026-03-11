@@ -2,7 +2,7 @@
   <img src="https://cachyos.org/wp-content/uploads/elementor/thumbs/Logo_1-q1w60p9mz1ddvvihp2cxjxuusgnojsz8hx1o0hsjao.png" width="80" />
 </p>
 
-<h1 align="center">🍚 cachy-dots</h1>
+<h1 align="center">🍚 cachycraft</h1>
 
 <p align="center">
   <b>Hyprland rice on CachyOS — managed with GNU Stow</b>
@@ -139,28 +139,23 @@ sudo pacman -S kitty fish
 sudo pacman -S stow eza bat cliphist playerctl swayosd matugen
 
 # Fonts & Themes
-sudo pacman -S ttf-cascadia-code-nerd adw-gtk3-dark gruvbox-plus-icon-theme
+sudo pacman -S ttf-cascadia-code-nerd adw-gtk-theme gruvbox-plus-icon-theme
 yay -S layan-cursor-theme-git
 ```
 
-### Deploy
+### Quick Install (one command)
 
 ```bash
-git clone https://github.com/<username>/cachy-dots.git ~/.dotfiles
-cd ~/.dotfiles
-
-# Stow all packages (creates symlinks into ~/.config)
-for pkg in */; do stow "$pkg"; done
-
-# Reload Hyprland
-hyprctl reload
+bash <(curl -s https://raw.githubusercontent.com/Rachit-Kumar/cachycraft/main/install.sh)
 ```
 
-### Unstow (remove symlinks)
+### Manual Install
 
 ```bash
+git clone https://github.com/Rachit-Kumar/cachycraft.git ~/.dotfiles
 cd ~/.dotfiles
-stow -D <package-name>   # e.g. stow -D hypr
+chmod +x install.sh
+./install.sh
 ```
 
 ---
@@ -171,6 +166,12 @@ stow -D <package-name>   # e.g. stow -D hypr
 - Wallpapers are auto-themed using **Matugen** (Material You colors)
 - Add folders: edit `~/.config/wallpaper-dirs` or click 📁 in the selector
 - Favorites, random mode, and category browsing included
+
+---
+
+## 🖼️ Showcase
+
+*(Add your screenshots here! Example: `![Desktop](https://path-to-image.png)`) *
 
 ---
 
