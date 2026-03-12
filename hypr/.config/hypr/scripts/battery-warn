@@ -1,0 +1,97 @@
+#!/bin/bash
+
+# Configuration
+BATTERY="BAT0"
+LOW_LEVEL=20
+CRITICAL_LEVEL=10
+EMERGENCY_LEVEL=5
+CHECK_INTERVAL=5 # seconds
+
+# State to prevent redundant notifications
+LAST_LEVEL=""
+LAST_STATUS=""
+
+while true; do
+    # Get battery capacity and status
+    if [ -d "/sys/class/power_supply/$BATTERY" ]; then
+        CAPACITY=$(cat "/sys/class/power_supply/$BATTERY/capacity")
+        STATUS=$(cat "/sys/class/power_supply/$BATTERY/status")
+    else
+        # Fallback for systems where BAT0 might not exist or be different
+        BATTERY=$(ls /sys/class/power_supply/ | grep BAT | head -n 1)
+        if [ -n "$BATTERY" ]; then
+            CAPACITY=$(cat "/sys/class/power_supply/$BATTERY/capacity")
+            STATUS=$(cat "/sys/class/power_supply/$BATTERY/status")
+        else
+            exit 1 # No battery found
+        fi
+    fi
+
+    # Charger Plugged/Unplugged Notification
+    if [ -n "$LAST_STATUS" ] && [ "$STATUS" != "$LAST_STATUS" ]; then
+        if [ "$STATUS" = "Charging" ] || [ "$STATUS" = "Full" ]; then
+            MESSAGE="Charger Connected"
+            ICON="ac-adapter"
+            COLOR="#98c379"
+            notify-send -u normal -i "$ICON" "Power" "$MESSAGE"
+            (timeout 5s rofi -e "$MESSAGE" -theme-str "window { location: center; anchor: center; width: 600px; border: 2px; border-color: $COLOR; } textbox { font: \"CaskaydiaCove Nerd Font 32\"; horizontal-align: 0.5; }") &
+        elif [ "$STATUS" = "Discharging" ]; then
+            MESSAGE="Charger Disconnected"
+            ICON="battery-caution"
+            COLOR="#e06c75"
+            notify-send -u normal -i "$ICON" "Power" "$MESSAGE"
+            (timeout 5s rofi -e "$MESSAGE" -theme-str "window { location: center; anchor: center; width: 600px; border: 2px; border-color: $COLOR; } textbox { font: \"CaskaydiaCove Nerd Font 32\"; horizontal-align: 0.5; }") &
+        fi
+    fi
+    LAST_STATUS="$STATUS"
+
+    # Only notify when discharging
+    if [ "$STATUS" = "Discharging" ]; then
+        
+        # Determine current warning level
+        CURRENT_LEVEL=""
+        if [ "$CAPACITY" -le "$EMERGENCY_LEVEL" ]; then
+            CURRENT_LEVEL="EMERGENCY"
+        elif [ "$CAPACITY" -le "$CRITICAL_LEVEL" ]; then
+            CURRENT_LEVEL="CRITICAL"
+        elif [ "$CAPACITY" -le "$LOW_LEVEL" ]; then
+            CURRENT_LEVEL="LOW"
+        fi
+
+        # If level changed, send notification and show OSD
+        if [ "$CURRENT_LEVEL" != "$LAST_LEVEL" ] && [ -n "$CURRENT_LEVEL" ]; then
+            case $CURRENT_LEVEL in
+                "EMERGENCY")
+                    MESSAGE="Battery Almost Empty: ${CAPACITY}%"
+                    ICON="battery-empty"
+                    URGENCY="critical"
+                    ;;
+                "CRITICAL")
+                    MESSAGE="Critical Battery Level: ${CAPACITY}%"
+                    ICON="battery-low"
+                    URGENCY="critical"
+                    ;;
+                "LOW")
+                    MESSAGE="Low Battery: ${CAPACITY}%"
+                    ICON="battery-caution"
+                    URGENCY="normal"
+                    ;;
+            esac
+
+            # Notification (history)
+            notify-send -u "$URGENCY" -i "$ICON" "Battery Warning" "$MESSAGE"
+            
+            # Centered On-Screen Display (5 seconds)
+            if command -v rofi > /dev/null; then
+                (timeout 10s rofi -e "$MESSAGE" -theme-str 'window { location: center; anchor: center; width: 600px; border: 2px; border-color: #e06c75; } textbox { font: "CaskaydiaCove Nerd Font 32"; horizontal-align: 0.5; }') &
+            fi
+            
+            LAST_LEVEL="$CURRENT_LEVEL"
+        fi
+    else
+        # Reset state if charging or full
+        LAST_LEVEL=""
+    fi
+
+    sleep "$CHECK_INTERVAL"
+done

@@ -2,7 +2,7 @@
 
 # ─── Configuration ───
 LOG="/tmp/hypr-launch.log"
-services=("waybar" "swaync" "hypridle" "swayosd-server" "swww-daemon" "snappy-switcher")
+services=("waybar" "swaync" "hypridle" "swayosd-server" "swww-daemon" "snappy-switcher" "battery-warn")
 start_time=$(date +%s%N)
 
 log() {
@@ -29,7 +29,7 @@ for service in "${services[@]}"; do
             log "  ✓ $service already running — skipping"
             continue
         fi
-        killall "$service" 2>/dev/null
+        pkill -f "$service" 2>/dev/null
         log "  ✕ Killed $service"
     else
         log "  ○ $service was not running"
@@ -41,7 +41,7 @@ if [ "$SOFT_MODE" = false ]; then
     sleep 0.5
     # Force kill any remaining stubborn processes
     for service in "${services[@]}"; do
-        killall -9 "$service" 2>/dev/null
+        pkill -9 -f "$service" 2>/dev/null
     done
     sleep 0.3
 fi
@@ -59,19 +59,21 @@ start_service() {
 
 start_service "waybar"          waybar
 start_service "swaync"          swaync
-start_service "hypridle"        hypridle -c ~/.config/hypr/configs/hypridle.conf
+start_service "hypridle"        hypridle
 start_service "swayosd-server"  swayosd-server --top-margin 0.5
 start_service "swww-daemon"     swww-daemon
 start_service "snappy-switcher" snappy-switcher --daemon
+start_service "battery-warn"    "$HOME/.config/hypr/scripts/battery-warn"
 
 # ─── 3. Restore wallpaper ───
 sleep 0.5
-if [ -f ~/.cache/last_wallpaper ]; then
-    swww img "$(cat ~/.cache/last_wallpaper)" --transition-type none
+if [ -f "$HOME/.cache/last_wallpaper" ]; then
+    swww img "$(cat "$HOME/.cache/last_wallpaper")" --transition-type none
     log "  ▸ Restored wallpaper"
 fi
 
 # ─── 4. Summary ───
+sleep 1 # Wait for services to fully settle
 end_time=$(date +%s%N)
 elapsed_ms=$(( (end_time - start_time) / 1000000 ))
 running_count=0
