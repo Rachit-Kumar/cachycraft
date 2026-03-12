@@ -7,5 +7,23 @@
 *.pyc
 __pycache__/
 
-# Kitty large config (optional — remove this line if you want to track it)
-# kitty/.config/kitty/kitty.conf
+# Editor
+.idea/
+.vscode/
+*.code-workspace
+
+# Hyprland sensitive files (local machine specific)
+hypr/configs/env.conf.local
+hypr/configs/hyprlock.conf.local
+
+# Logs
+*.log
+*.lock
+
+# Temporary
+/tmp/
+*.tmp
+
+# Backup
+*.bak
+*.backup
